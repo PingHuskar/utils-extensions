@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Repo QR",
+  "version": "1.0.0",
+  "description": "Shows a QR code for a GitHub repository's About website.",
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["qr-generator.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+.repo-qr-card {
+  margin-bottom: 16px;
+}
+
+.repo-qr-card a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  font-size: 12px;
+  text-align: center;
+}
+
+.repo-qr-card svg {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}

@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "CopyHeader - Variable Manager",
+  "version": "1.0.0",
+  "description": "Store key-value variables and copy them with one click. Includes copy history.",
+  "permissions": [
+    "storage",
+    "clipboardWrite",
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CopyHeader",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

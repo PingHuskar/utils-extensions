@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CopyHeader</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>CopyHeader</h1>
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="variables">Variables</button>
+        <button class="tab-btn" data-tab="history">History</button>
+        <button class="tab-btn" data-tab="query">Query</button>
+      </div>
+    </header>
+
+    <!-- Variables Tab -->
+    <section class="tab-content active" id="tab-variables">
+      <div class="add-form">
+        <div class="form-row">
+          <input type="text" id="var-name" placeholder="Variable name" maxlength="100" autocomplete="off" />
+          <input type="text" id="var-value" placeholder="Value" maxlength="1000" autocomplete="off" />
+        </div>
+        <button class="btn btn-primary" id="btn-add">+ Add Variable</button>
+      </div>
+
+      <div class="search-row">
+        <input type="text" id="search-input" placeholder="Search variables..." autocomplete="off" />
+      </div>
+
+      <ul class="variable-list" id="variable-list">
+        <!-- Items rendered by JS -->
+      </ul>
+
+      <p class="empty-state" id="empty-vars">No variables yet. Add one above.</p>
+    </section>
+
+    <!-- History Tab -->
+    <section class="tab-content" id="tab-history">
+      <div class="history-header">
+        <span class="history-label">Recent copies</span>
+        <button class="btn btn-danger-sm" id="btn-clear-history">Clear</button>
+      </div>
+      <ul class="history-list" id="history-list">
+        <!-- Items rendered by JS -->
+      </ul>
+      <p class="empty-state" id="empty-history">No copy history yet.</p>
+    </section>
+  </div>
+
+    <!-- Query Tab -->
+    <section class="tab-content" id="tab-query">
+      <div class="query-form">
+        <div class="query-row">
+          <input type="text" id="query-selector" placeholder="CSS selector  e.g. label#lblApplID" maxlength="500" autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="query-row">
+          <select id="query-prop">
+            <option value="textContent">textContent</option>
+            <option value="value">value</option>
+            <option value="innerHTML">innerHTML</option>
+            <option value="href">href</option>
+            <option value="src">src</option>
+            <option value="outerHTML">outerHTML</option>
+            <option value="attr">attribute …</option>
+          </select>
+          <input type="text" id="query-attr" placeholder="Attribute name" maxlength="100" autocomplete="off" style="display:none" />
+        </div>
+        <div class="query-row">
+          <input type="text" id="query-label" placeholder="Label (optional)" maxlength="100" autocomplete="off" />
+        </div>
+        <div class="query-btn-row">
+          <button class="btn btn-query" id="btn-run-query">&#9654; Run</button>
+          <button class="btn btn-save-query" id="btn-save-query">&#43; Save</button>
+        </div>
+      </div>
+      <div class="query-result-box" id="query-result-box" style="display:none">
+        <div class="query-result-header">
+          <span class="query-result-label" id="query-result-label"></span>
+          <button class="btn-icon btn-copy" id="btn-copy-result">Copy</button>
+        </div>
+        <pre class="query-result-value" id="query-result-value"></pre>
+      </div>
+      <p class="query-error" id="query-error" style="display:none"></p>
+
+      <!-- Saved selectors -->
+      <div class="saved-queries-header" id="saved-queries-header" style="display:none">
+        <span class="saved-queries-label">Saved selectors</span>
+      </div>
+      <ul class="saved-queries-list" id="saved-queries-list"></ul>
+    </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
