@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" width="120" alt="Orange Filter logo"></p>
+
 # Orange Filter
 
 A small Chrome extension that lays a translucent orange tint (`#FE6B13` at 70% opacity) over every page you visit.
