@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" width="120" alt="CopyHeader logo"></p>
+
 # CopyHeader
 
 A Chrome extension (Manifest V3) for storing key-value variables and copying them with one click. It keeps a history of recent copies and can pull values out of the current page with a CSS selector.

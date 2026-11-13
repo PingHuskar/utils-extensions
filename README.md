@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" width="120" alt="utils-extensions logo"></p>
+
 # utils-extensions
 
 A collection of small Chromium (Manifest V3) browser extensions for everyday utility tasks. Each extension lives in its own folder and can be loaded independently.

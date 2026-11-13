@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" width="120" alt="Easy Copy logo"></p>
+
 # Easy Copy
 
 A Chrome extension (Manifest V3) that lets you select, right-click and copy text on sites that try to block it.

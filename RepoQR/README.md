@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" width="120" alt="Repo QR logo"></p>
+
 # Repo QR
 
 A browser extension that shows a QR code above a GitHub repository's About
