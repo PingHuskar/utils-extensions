@@ -1,0 +1,87 @@
+.ifsgantt-panel {
+  --ifsgantt-label-w: 190px;
+  margin: 16px 0;
+  padding: 10px 14px 14px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 8px;
+}
+.ifsgantt-panel > summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 4px 0;
+}
+.ifsgantt-note {
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin: 2px 0 8px;
+}
+.ifsgantt-scroll {
+  overflow-x: auto;
+}
+.ifsgantt-chart {
+  position: relative;
+  min-width: 720px;
+  background-image: linear-gradient(to right, rgba(128, 128, 128, 0.18) 1px, transparent 1px);
+  background-size: calc((100% - var(--ifsgantt-label-w)) / var(--ifsgantt-hours)) 100%;
+  background-position: var(--ifsgantt-label-w) 0;
+  background-repeat: repeat-x;
+}
+.ifsgantt-row {
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+.ifsgantt-label {
+  flex: 0 0 var(--ifsgantt-label-w);
+  width: var(--ifsgantt-label-w);
+  padding-right: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8em;
+  color: inherit;
+  text-decoration: none;
+}
+a.ifsgantt-label:hover {
+  text-decoration: underline;
+}
+.ifsgantt-track {
+  position: relative;
+  flex: 1 1 auto;
+  height: 100%;
+}
+.ifsgantt-axis {
+  height: 22px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+}
+.ifsgantt-tick {
+  position: absolute;
+  top: 3px;
+  transform: translateX(-50%);
+  font-size: 0.7em;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.ifsgantt-bar {
+  position: absolute;
+  top: 4px;
+  height: 16px;
+  box-sizing: border-box;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: #3b82c4;
+  color: #fff;
+  font-size: 0.7em;
+  line-height: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ifsgantt-now {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5484d;
+  pointer-events: none;
+}

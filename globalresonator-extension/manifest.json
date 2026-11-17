@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "IngressFS Event Tools",
+  "version": "1.0.0",
+  "description": "Adds QR codes for every link and an Export Agents RSVP CSV button to Global Resonator IngressFS event pages, and a Gantt timeline to the IngressFS events list.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://globalresonator.com/ifs/event/*",
+        "https://www.globalresonator.com/ifs/event/*"
+      ],
+      "js": [
+        "qr.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://globalresonator.com/ifs/list/*",
+        "https://www.globalresonator.com/ifs/list/*"
+      ],
+      "js": [
+        "gantt.js"
+      ],
+      "css": [
+        "gantt.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
