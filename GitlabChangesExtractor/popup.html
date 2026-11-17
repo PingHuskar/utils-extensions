@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Extractor</title>
+  <style>
+    body {
+      width: 250px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .action-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .action-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+    }
+    .action-button:hover {
+      background-color: #45a049;
+    }
+    #copyShortCommitBtn,
+    #copyFullCommitBtn {
+      background-color: #ff9800;
+    }
+    #copyShortCommitBtn:hover,
+    #copyFullCommitBtn:hover {
+      background-color: #fb8c00;
+    }
+    .action-button:focus-visible {
+      outline: 2px solid #222;
+      outline-offset: 2px;
+    }
+    .action-button svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+    .action-button svg text {
+      fill: currentColor;
+      stroke: none;
+      font: 700 7px Arial, sans-serif;
+    }
+    #status {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #666;
+    }
+    .success {
+      color: #4CAF50 !important;
+    }
+    .error {
+      color: #f44336 !important;
+    }
+    .warning {
+      color: #ff9800 !important;
+      font-weight: bold;
+      display: block;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gitlab File Changes Extractor</h1>
+  <div class="action-buttons">
+    <button id="extractBtn" class="action-button" type="button" aria-label="Extract and copy file names" title="Extract and copy file names">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 3h7l4 4v14H7z" />
+        <path d="M14 3v5h5M10 12h5M10 16h5" />
+      </svg>
+    </button>
+    <button id="copyShortCommitBtn" class="action-button" type="button" aria-label="Copy short commit ID" title="Copy short commit ID">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 8V4h12v13h-4M4 8h12v13H4z" />
+        <text x="8" y="17">8</text>
+      </svg>
+    </button>
+    <button id="copyFullCommitBtn" class="action-button" type="button" aria-label="Copy full commit ID" title="Copy full commit ID">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 8V4h12v13h-4M4 8h12v13H4z" />
+        <text x="7" y="17">#</text>
+      </svg>
+    </button>
+  </div>
+  <p id="status"></p>
+  <hr style="margin: 10px 0;">
+  <button id="historyBtn" style="background-color: #2196F3; width: 100%; margin-top: 5px;">View History</button>
+  <script src="popup.js"></script>
+</body>
+</html>
