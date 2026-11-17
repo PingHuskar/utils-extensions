@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" width="120" alt="GitLab Changes Extractor logo"></p>
+
 # GitLab Changes Extractor
 
 A Chrome extension that quickly extracts and copies file names from GitLab pull request changes, with built-in history tracking.
