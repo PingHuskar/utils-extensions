@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Repo Party",
+  "version": "1.0.0",
+  "description": "Makes GitHub's empty-repository Quick setup page fun: confetti, a rocket mascot, click-to-copy command lines and playful messages.",
+  "icons": {"16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png"},
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

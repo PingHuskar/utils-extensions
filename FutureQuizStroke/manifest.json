@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "FutureSkill Quiz Keys",
+  "version": "1.0.0",
+  "description": "Keyboard shortcuts for quizzes on learn.futureskill.co: 1-9 (or A-D) pick a choice, Enter goes to the next question.",
+  "icons": {"16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png"},
+  "content_scripts": [
+    {
+      "matches": ["https://learn.futureskill.co/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

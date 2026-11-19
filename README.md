@@ -9,6 +9,7 @@ A collection of small Chromium (Manifest V3) browser extensions for everyday uti
 | [easy-copy](easy-copy/) | Re-enables text selection, right-click and copy on sites that block them, with a floating Copy button and per-paragraph copy icons. |
 | [CopyHeader](CopyHeader/) | Stores key-value variables, copies them with one click, and keeps a copy history. Also runs saved CSS selectors against the current page and copies the result. |
 | [RepoQR](RepoQR/) | Shows a locally generated QR code above a GitHub repository's About section that points to the repo's website. |
+| [RepoParty](RepoParty/) | Makes GitHub's empty-repo Quick setup page fun: confetti, a rocket mascot, and click-to-copy command lines. |
 | [orange-filter-extension](orange-filter-extension/) | Overlays a translucent orange tint on every page. Manifest V2; the popup toggle is not wired up yet. |
 
 ## Install (any extension)
@@ -55,5 +56,6 @@ utils-extensions/
 ├── easy-copy/    # copy-unblocker extension
 ├── CopyHeader/   # variable manager + selector query
 ├── RepoQR/       # GitHub repo QR code
+├── RepoParty/    # fun empty-repo Quick setup page
 └── orange-filter-extension/   # orange page tint (MV2)
 ```

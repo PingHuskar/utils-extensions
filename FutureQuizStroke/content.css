@@ -1,0 +1,17 @@
+label[data-fsk] {
+  position: relative;
+}
+label[data-fsk]::after {
+  content: attr(data-fsk);
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font: 600 12px/18px system-ui, sans-serif;
+  text-align: center;
+  pointer-events: none;
+}
