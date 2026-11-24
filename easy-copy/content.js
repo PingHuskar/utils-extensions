@@ -15,6 +15,7 @@
   let toastEl = null;
   let hoveredBlock = null;
   let toastTimer = null;
+  let hideTimer = null;
 
   // Stop page scripts from cancelling copy/selection events.
   // Capturing on window runs before the page's own listeners, so they never see the event.
@@ -42,6 +43,7 @@
   }
 
   function hideButtons() {
+    clearTimeout(hideTimer);
     if (selectionBtn) selectionBtn.style.display = "none";
     if (blockBtn) blockBtn.style.display = "none";
     hoveredBlock = null;
@@ -100,17 +102,56 @@
     positionAt(selectionBtn, rect.top - 40, rect.left + rect.width / 2 - 36);
   }
 
+  // Delay hiding so the pointer has time to travel from the paragraph to the button.
+  function scheduleBlockHide() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      hoveredBlock = null;
+      if (blockBtn) blockBtn.style.display = "none";
+    }, 600);
+  }
+
+  function cancelBlockHide() {
+    clearTimeout(hideTimer);
+  }
+
+  function isTypingTarget(el) {
+    return !!(el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)));
+  }
+
+  // Press "c" while a copy button is showing to trigger it.
+  function onKeyDown(e) {
+    if (!enabled || e.key.toLowerCase() !== "c") return;
+    if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || e.repeat) return;
+    if (isTypingTarget(e.target)) return;
+    if (selectionBtn && selectionBtn.style.display === "block") {
+      const text = window.getSelection().toString().trim();
+      if (text) {
+        e.preventDefault();
+        copyText(text);
+        selectionBtn.style.display = "none";
+      }
+    } else if (blockBtn && blockBtn.style.display === "block" && hoveredBlock) {
+      e.preventDefault();
+      copyText(hoveredBlock.innerText.trim());
+      cancelBlockHide();
+      blockBtn.style.display = "none";
+      hoveredBlock = null;
+    }
+  }
+
   function onMouseOver(e) {
     if (!enabled || !blockBtn) return;
-    if (blockBtn.contains(e.target)) return;
-    const block = e.target.closest ? e.target.closest(BLOCK_SELECTOR) : null;
-    if (!block || !block.innerText || block.innerText.trim().length < 2) {
-      if (hoveredBlock) {
-        hoveredBlock = null;
-        blockBtn.style.display = "none";
-      }
+    if (blockBtn.contains(e.target)) {
+      cancelBlockHide();
       return;
     }
+    const block = e.target.closest ? e.target.closest(BLOCK_SELECTOR) : null;
+    if (!block || !block.innerText || block.innerText.trim().length < 2) {
+      if (hoveredBlock) scheduleBlockHide();
+      return;
+    }
+    cancelBlockHide();
     if (block === hoveredBlock) return;
     hoveredBlock = block;
     const rect = block.getBoundingClientRect();
@@ -154,6 +195,9 @@
     document.addEventListener("keyup", () => setTimeout(updateSelectionButton, 0), true);
     document.addEventListener("scroll", hideButtons, true);
     document.addEventListener("mouseover", onMouseOver, true);
+    document.addEventListener("keydown", onKeyDown, true);
+    blockBtn.addEventListener("mouseenter", cancelBlockHide);
+    blockBtn.addEventListener("mouseleave", scheduleBlockHide);
   }
 
   // Read the per-site setting, then keep it in sync with the popup.
