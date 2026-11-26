@@ -13,15 +13,21 @@
       h1 { font-size: 15px; margin: 0 0 8px; }
       .host { font-size: 12px; color: #6b7280; word-break: break-all; margin-bottom: 12px; }
       label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+      label.name { flex-direction: column; align-items: stretch; gap: 4px; margin-top: 12px; font-size: 12px; color: #6b7280; cursor: default; }
+      label.name input { font: 14px system-ui, sans-serif; color: #111827; padding: 4px 6px; border: 1px solid #d1d5db; border-radius: 4px; }
       p { font-size: 12px; color: #6b7280; margin: 12px 0 0; }
     </style>
   </head>
   <body>
-    <h1>Easy Copy</h1>
+    <h1>Copy &amp; Mark</h1>
     <div class="host" id="host">Loading…</div>
     <label>
       <input type="checkbox" id="toggle" />
       Enable on this site
+    </label>
+    <label class="name">
+      Your name (screenshot stamp)
+      <input type="text" id="name" maxlength="40" placeholder="John Doe" />
     </label>
     <p>Turns on text selection, right-click copy, a floating Copy button for selections, and a copy icon next to paragraphs.</p>
     <script src="popup.js"></script>

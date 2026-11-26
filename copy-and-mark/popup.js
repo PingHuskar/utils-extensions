@@ -1,6 +1,15 @@
 const hostEl = document.getElementById("host");
 const toggle = document.getElementById("toggle");
 
+// The name is stamped on screenshots (bottom right, next to the date and time).
+const nameEl = document.getElementById("name");
+chrome.storage.local.get({ reporterName: "" }, (d) => {
+  nameEl.value = d.reporterName;
+});
+nameEl.addEventListener("input", () => {
+  chrome.storage.local.set({ reporterName: nameEl.value.trim() });
+});
+
 async function init() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   let host = "";
@@ -11,7 +20,7 @@ async function init() {
   }
 
   if (!host) {
-    hostEl.textContent = "This page can't use Easy Copy.";
+    hostEl.textContent = "This page can't use Copy & Mark.";
     toggle.disabled = true;
     return;
   }

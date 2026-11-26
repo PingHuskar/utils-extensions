@@ -6,7 +6,7 @@ A collection of small Chromium (Manifest V3) browser extensions for everyday uti
 
 | Extension | What it does |
 | --- | --- |
-| [easy-copy](easy-copy/) | Re-enables text selection, right-click and copy on sites that block them, with a floating Copy button and per-paragraph copy icons. |
+| [copy-and-mark](copy-and-mark/) | Re-enables text selection, right-click and copy on sites that block them, with a floating Copy button and per-paragraph copy icons. Also marks page elements Pass/Fail with notes and copies stamped screenshots. |
 | [CopyHeader](CopyHeader/) | Stores key-value variables, copies them with one click, and keeps a copy history. Also runs saved CSS selectors against the current page and copies the result. |
 | [RepoQR](RepoQR/) | Shows a locally generated QR code above a GitHub repository's About section that points to the repo's website. |
 | [RepoParty](RepoParty/) | Makes GitHub's empty-repo Quick setup page fun: confetti, a rocket mascot, and click-to-copy command lines. |
@@ -16,21 +16,22 @@ A collection of small Chromium (Manifest V3) browser extensions for everyday uti
 
 1. Open `chrome://extensions` in Chrome (or `edge://extensions` in Edge, or another Chromium browser).
 2. Turn on **Developer mode**.
-3. Click **Load unpacked** and select the extension's folder (e.g. `easy-copy`).
+3. Click **Load unpacked** and select the extension's folder (e.g. `copy-and-mark`).
 4. After changing the code, click the reload icon on the extension's card.
 
 No build step is needed to load them. RepoQR has an optional one for rebuilding its bundled QR generator (see its README).
 
 ## Extensions
 
-### easy-copy
+### copy-and-mark
 
 - Overrides `user-select: none` and stops pages from cancelling `copy`, `cut`, `contextmenu`, `selectstart` and `dragstart`.
 - Floating **Copy** button on text selection; ⧉ icon on hover for paragraphs, list items, headings, quotes, code blocks, table cells and captions.
+- Pick mode (`Alt+H`): mark any element Pass / Fail / Check later / Not sure with a number and note, then copy an element or full-screen screenshot (stamped with name and time) or a text report.
 - Per-site on/off toggle from the toolbar popup.
 - Permissions: `storage`, and access to all sites so it can run on any page.
 
-See [easy-copy/README.md](easy-copy/README.md).
+See [copy-and-mark/README.md](copy-and-mark/README.md).
 
 ### CopyHeader
 
@@ -53,7 +54,7 @@ See [RepoQR/README.md](RepoQR/README.md).
 
 ```text
 utils-extensions/
-├── easy-copy/    # copy-unblocker extension
+├── copy-and-mark/  # copy-unblocker + element marking
 ├── CopyHeader/   # variable manager + selector query
 ├── RepoQR/       # GitHub repo QR code
 ├── RepoParty/    # fun empty-repo Quick setup page

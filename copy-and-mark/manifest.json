@@ -1,16 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "Easy Copy",
+  "name": "Copy & Mark",
   "version": "1.0.0",
-  "description": "Select, right-click and copy text on blog sites that block copying. Adds a Copy button for selections and paragraphs.",
+  "description": "Select, right-click and copy text on blog sites that block copying. Adds Copy buttons, plus a pick mode to mark elements Pass/Fail with notes and copy screenshots.",
   "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
   "icons": {"16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png"},
   "action": {
     "default_popup": "popup.html",
     "default_icon": {"16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png"},
-    "default_title": "Easy Copy"
+    "default_title": "Copy & Mark"
   },
+  "background": {"service_worker": "background.js"},
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
